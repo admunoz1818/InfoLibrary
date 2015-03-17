@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using InfoLibrary.Resources;
+using InfoLibrary.Models;
 
 namespace InfoLibrary
 {
@@ -20,6 +21,13 @@ namespace InfoLibrary
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = book.SelectedItem;
+            NavigationService.Navigate(new Uri("/DetailedBook.xaml?indice="+selectedItem, UriKind.Relative));
+           
         }
 
         // Sample code for building a localized ApplicationBar

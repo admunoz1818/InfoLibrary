@@ -29,18 +29,16 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel Margin="10" DataContext="{StaticResource books}">
-                <StackPanel
-                DataContext="{Binding Path=Data.[1]}"
-                >
+                <StackPanel DataContext="{Binding Path=Data.[1]}">
                     <TextBlock Text="Code:"/>
-                    <TextBox x:Name="code"
+                    <TextBox IsReadOnly="True" x:Name="code"
                          Text="{Binding 
                     Code,
                     Mode=TwoWay
                     }"
                          />
                     <TextBlock Text="Name:"/>
-                    <TextBox x:Name="name"
+                    <TextBox IsReadOnly="True" x:Name="name"
                          Text="{Binding 
                     Name,
                     Mode=TwoWay
@@ -48,21 +46,21 @@
                     }"
                          />
                     <TextBlock Text="Author:"/>
-                    <TextBox x:Name="author"
+                    <TextBox IsReadOnly="True" x:Name="author"
                          Text="{Binding 
                     Author,
                     Mode=TwoWay
                     }"
                          />
                     <TextBlock Text="Genre:"/>
-                    <TextBox x:Name="genre"
+                    <TextBox IsReadOnly="True" x:Name="genre"
                          Text="{Binding 
                     Genre,
                     Mode=TwoWay
                     }"
                          />
                     <TextBlock Text="Pages:"/>
-                    <TextBox x:Name="pages"
+                    <TextBox IsReadOnly="True" x:Name="pages"
                          Text="{Binding Pages, Mode=TwoWay}"
                          />
                 </StackPanel>

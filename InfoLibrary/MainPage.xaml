@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:InfoLibrary.Models"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -19,7 +20,11 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
+        <Grid.Resources>
+            <models:Books x:Key="data"/>
+        </Grid.Resources>
+
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="InfoLibrary" Foreground="Orange" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
@@ -28,19 +33,15 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox
-                ItemsSource="{Binding 
-                Source={StaticResource books}
-                ,Path=Data}"
-                >
-                <ListBox.ItemTemplate>
+            <phone:LongListSelector x:Name="book"  ItemsSource="{Binding Source={StaticResource data}, Path=Data}" SelectionChanged="LongListSelector_SelectionChanged">
+                <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="10">                           
-                            <TextBlock Text="{Binding Name}" FontSize="30"/>
+                        <StackPanel Margin="0,0,0,10">
+                            <TextBlock Text="{Binding Name}" FontSize="40"/>
                         </StackPanel>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
         </Grid>
      
     </Grid>
